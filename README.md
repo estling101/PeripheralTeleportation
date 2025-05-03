@@ -8,6 +8,7 @@ The implementation for a novel cybersickness mitigation technique called Periphe
 An example showing the mechanism of Peripheral Teleportation.
 
 <br>
+</div>
 
 ## Usage instructions
 
