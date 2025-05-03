@@ -24,7 +24,7 @@ An example showing the mechanism of Peripheral Teleportation.
 
 ## Bibtex
 ```
-@article{Nie_Perpheral_2025,
+@article{Nie_Peripheral_2025,
   author={Nie, Tongyu and Pospick, Courtney Hutton and Cantory, Ville and Zhang, Danhua and DeGuzman, Jasmine Joyce and Interrante, Victoria and Adhanom, Isayas Berhe and Rosenberg, Evan Suma},
   journal={IEEE Transactions on Visualization and Computer Graphics}, 
   title={Peripheral Teleportation: A Rest Frame Design to Mitigate Cybersickness During Virtual Locomotion}, 
