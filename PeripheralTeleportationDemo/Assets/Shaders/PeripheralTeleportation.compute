@@ -1,0 +1,62 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+#include "UnityCG.cginc"
+#include "Restrictor.cginc"
+
+Texture2D<float4> MovingCam, PTCam0, PTCam1;
+RWTexture2D<float4> Result;
+
+// To lerp the two cameras
+float _Lerp;
+bool _IniFrame, _IniPT0; // false by default, true during the first frame
+int _EyeIndex;
+bool _DitherTime, _DitherSpace;
+bool _ForceBlackPeriphery;
+
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	uint3 corrected_xyz = id;
+	corrected_xyz.y = _ReverseY * (_ScreenParams.y - corrected_xyz.y) + (1 - _ReverseY) * corrected_xyz.y;
+
+	int2 xy = id.xy;
+	// don't forget to disable aa
+	float2 floatxy = float2(corrected_xyz.xy);
+	float2 uv = floatxy / _ScreenParams.xy;
+
+	// Major change here
+	// Just open the side when turning
+	float radius = uv2Radius2(uv, _EyeIndex);
+	// Go back here for the old, yet more complex design
+	//float radius = uv2Radius2(uv, _EyeIndex);
+	fixed4 col; 
+	fixed4 colFoveat = MovingCam[xy];
+	fixed forceBlackPeriphery = _ForceBlackPeriphery ? 0 : 1;
+	fixed4 colPT0 = PTCam0[xy] * forceBlackPeriphery;
+	fixed4 colPT1 = PTCam1[xy] * forceBlackPeriphery;
+
+	float rnSpace = radius * floatxy.x * floatxy.y;
+	rnSpace = abs(rnSpace - floor(rnSpace));
+	float rnTime = _CosTime.x * rnSpace;
+	rnTime = abs(rnTime - floor(rnTime));
+	
+	if (radius > _RestrictorRadius) {
+		// Time lerping
+		float lt = _Lerp;
+		if (_DitherTime) {
+			lt = rnTime > _Lerp ? 0 : 1;
+		}
+		col = lerp(colPT1, colPT0, lt);
+		if (radius < (_RestrictorRadius + _RestrictorTranstion)) {
+			float l = (radius - _RestrictorRadius) / (_RestrictorTranstion);
+			if (_DitherSpace) {
+				l = rnSpace > l ? 0 : 1;
+			}
+			col = lerp(colFoveat, col, l);
+		}
+	} else {
+		col = colFoveat;
+	}
+    Result[corrected_xyz.xy] = col;
+}
