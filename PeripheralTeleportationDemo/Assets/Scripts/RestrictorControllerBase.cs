@@ -11,21 +11,21 @@ public abstract class RestrictorControllerBase : MonoBehaviour
     public Camera mainCam;
     [Header("FoV parameters")]
     [Tooltip("Measured in tan(theta/2)")]
-    public float fovRestrictorSize = 0.577f; // tan 30 degs
-    public float fovOuterSize = 0.6494f; // tan 33 degs
-    public float fovMax = 1f;
+    public float fovRestrictorSize = .577f; // tan 30 degs
+    public float fovOuterSize = .637f; // tan 32.5 degs
+    public float fovMax = 1.4f;
     // translation parameters
     [Header("The only pair of fov restrictor sizes that are used")]
-    public float transFovRestrictorSize = .45f;
-    public float transturnFovOuterSize = .5f;
+    public float transFovRestrictorSize = .577f;
+    public float transturnFovOuterSize = .637f;
     // a different set of parameters for turning
-    public float fovRestrictorShift = .2f;
-    public float fovRestrictorXScale = .7f;
+    public float fovRestrictorShift = 0f;
+    public float fovRestrictorXScale = 1f;
     public float turnFovRestrictorSize = .45f;
     public float turnFovOuterSize = .5f;
     public float transSqlrPow = 2.0f;
-    public float turnSqlrPow = 3.0f;
-    public float transitionInterval = .25f;
+    public float turnSqlrPow = 2.0f;
+    public float transitionInterval = .01f;
     public float shiftInterval = .25f;
     public bool forceTurnOn = false;
     public bool forceTurnOff = false;
@@ -36,7 +36,7 @@ public abstract class RestrictorControllerBase : MonoBehaviour
     [Tooltip("Miniumn rotation speed for rotation prediction")]
     public float minRotThreshold = 1f;
     [Header("Post Processing Shader")]
-    public ComputeShader computeShaderPostProcessing;
+    public ComputeShader computeShaderPostProcessing; // PeripheralTeleportation.compute
 
     // Shader ids
     protected int RstrRadius,

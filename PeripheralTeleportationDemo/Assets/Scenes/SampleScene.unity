@@ -966,7 +966,7 @@ MonoBehaviour:
   xrRig: {fileID: 1599440148}
   mainCam: {fileID: 963194227}
   fovRestrictorSize: 0.577
-  fovOuterSize: 0.6494
+  fovOuterSize: 0.637
   fovMax: 1.4
   transFovRestrictorSize: 0.577
   transturnFovOuterSize: 0.637

@@ -18,8 +18,8 @@ public class PeripheralTeleportationCS : RestrictorControllerBase
     public float swayThreshold = .01f;
     [Header("Dither")]
     public bool ditherSpace = true;
-    public bool ditherTime = true;
-    [Header("Locomotion Controller")]
+    public bool ditherTime = false;
+    [Header("Locomotion Controller")] // The locomotion system
     public ActionBasedContinuousMoveProvider moveProvider;
     public ActionBasedContinuousTurnProvider turnProvider;
 
@@ -295,7 +295,7 @@ public class PeripheralTeleportationCS : RestrictorControllerBase
     void UpdateAuxCams()
     {
         float halfIPD = mainCam.stereoSeparation * .5f;
-        float rotationLerpFactor = 0f;
+        //float rotationLerpFactor = 0f;
         float scaleFactor;
 
         // Amplify postural sway
