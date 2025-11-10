@@ -27,7 +27,7 @@ void CSMain (uint3 id : SV_DispatchThreadID)
 
 	// Major change here
 	// Just open the side when turning
-	float radius = uv2Radius2(uv, _EyeIndex);
+	float radius = uv2Radius3(uv, _EyeIndex);
 	// Go back here for the old, yet more complex design
 	//float radius = uv2Radius2(uv, _EyeIndex);
 	fixed4 col; 

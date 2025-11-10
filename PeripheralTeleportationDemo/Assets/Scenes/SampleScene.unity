@@ -163,7 +163,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66293635}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &66293638
 Camera:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623185977}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &623185980
 Camera:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772705048}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &772705051
 Camera:
   m_ObjectHideFlags: 0
@@ -968,12 +968,12 @@ MonoBehaviour:
   fovRestrictorSize: 0.577
   fovOuterSize: 0.637
   fovMax: 1.4
-  transFovRestrictorSize: 0.577
-  transturnFovOuterSize: 0.637
-  fovRestrictorShift: 0
+  transFovRestrictorSize: 0.52
+  transturnFovOuterSize: 0.577
+  fovRestrictorShift: 0.17
   fovRestrictorXScale: 1
-  turnFovRestrictorSize: 0.45
-  turnFovOuterSize: 0.5
+  turnFovRestrictorSize: 0.52
+  turnFovOuterSize: 0.577
   transSqlrPow: 2
   turnSqlrPow: 2
   transitionInterval: 0.01
@@ -1426,7 +1426,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808381739}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1808381742
 Camera:
   m_ObjectHideFlags: 0
