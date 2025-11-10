@@ -12,11 +12,19 @@ An example showing the mechanism of Peripheral Teleportation.
 
 ## Usage instructions
 
-1) Clone this repository into the `Assets` folder of your Unity project.
+### Try the Demo Scene
 
-2) To use this technique in your own Unity project, you can attach the `PeripheralTeleportationCS.cs` script to your main camera. 
+1) Clone this repository to your computer.
 
-3) Fill out the corresponding motion parameters for fields `
+2) Open the Unity project in the `PeripheralTeleportationDemo` folder. The project was built with Unity 2022.3.23f1.
+
+### Add Peripheral Teleportation to Your Project
+
+1) Copy all the files in the `Scripts` and `Shaders` to your Unity project.
+
+2) To use this technique in your own Unity project, you can attach the `[Scripts\PeripheralTeleportationCS.cs]` script to your main camera. 
+
+3) Fill out the corresponding motion parameters for empty fields. You can use the provided demo scene as your reference.
 
 4) When the script is enabled, you can leave most of the fields by default. Set the move providers to the action based continusous move / turn provider in your own project. Create two game objects and attach two cameras under each game ojbect. Set the fields auxRig0 and auxRig1 to the two objects. Set the cameras to auxCam0Left, auxCam0Right, auxCam1Left, and auxCam1Right.
 
