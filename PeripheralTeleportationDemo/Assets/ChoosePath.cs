@@ -27,7 +27,7 @@ public class PathManager : MonoBehaviour
     {
         if (!Application.isPlaying) return;
         if (selectedPathIndex == lastPathIndex) return;
-        if (selectedPathIndex < 0 || selectedPathIndex > 9) return;
+        if (selectedPathIndex < 0 || selectedPathIndex > 10) return;
 
 
         ApplyPathSelection();

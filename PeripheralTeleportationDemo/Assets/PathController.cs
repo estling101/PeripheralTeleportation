@@ -5,7 +5,7 @@ using Unity.XR.CoreUtils;
 public class PathController : MonoBehaviour
 {
     [Header("Path Settings")]
-    public int coinsVisibleAhead = 3;
+    public int coinsVisibleAhead = 2;
 
     private List<Coin> coins = new List<Coin>();
     private int currentIndex = 0;

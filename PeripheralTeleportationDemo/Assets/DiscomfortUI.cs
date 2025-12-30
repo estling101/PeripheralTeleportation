@@ -13,6 +13,15 @@ public class DiscomfortUI : MonoBehaviour
     [Header("Panel")]
     public GameObject panel;
 
+    [Header("Follow Camera")]
+    public float distanceForward = 2.0f;
+    public float heightOffset = 0.5f;
+
+    private bool isVisible;
+
+
+    
+
     
 
     private void Awake()
@@ -22,11 +31,30 @@ public class DiscomfortUI : MonoBehaviour
             slider.onValueChanged.AddListener(UpdateLabel);
     }
 
+
+    private void Update()
+    {
+        if (!isVisible) return;
+
+        Camera cam = Camera.main;
+        if (cam == null) return;
+
+        transform.position =
+            cam.transform.position +
+            cam.transform.forward * distanceForward +
+            Vector3.up * heightOffset;
+
+        transform.LookAt(cam.transform);
+        transform.Rotate(0, 180f, 0);
+    }
+
     // Show the canvas at a specific world position (e.g., last coin)
     public void Show(Vector3 worldPosition)
     {
         Debug.Log("DiscomfortUI.Show called");
         panel.SetActive(true);
+        isVisible = true;
+
 
         // enable right controller (pointer)
         if (rightController != null)
@@ -65,6 +93,7 @@ public class DiscomfortUI : MonoBehaviour
     {
         gameObject.SetActive(false);
         panel.SetActive(false);
+        isVisible = false;
 
         // disable right controller (pointer)
         if (rightController != null)

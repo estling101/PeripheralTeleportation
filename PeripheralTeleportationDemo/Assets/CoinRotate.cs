@@ -10,11 +10,13 @@ public class Coin : MonoBehaviour
     public float rotationSpeed = 10f;
 
     private MeshRenderer meshRenderer;
+    private Collider coinCollider;
     private PathController pathController;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        coinCollider = GetComponent<Collider>();
         pathController = GetComponentInParent<PathController>();
     }
 
@@ -42,5 +44,8 @@ public class Coin : MonoBehaviour
     {
         if (meshRenderer != null)
             meshRenderer.enabled = visible;
+
+        if (coinCollider != null)
+            coinCollider.enabled = visible;
     }
 }
