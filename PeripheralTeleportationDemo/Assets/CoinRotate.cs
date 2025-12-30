@@ -7,7 +7,7 @@ public class Coin : MonoBehaviour
     public bool isLastCoin;
 
     [Header("Rotation Settings")]
-    public float rotationSpeed = 180f;
+    public float rotationSpeed = 10f;
 
     private MeshRenderer meshRenderer;
     private PathController pathController;
@@ -17,15 +17,6 @@ public class Coin : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         pathController = GetComponentInParent<PathController>();
     }
-
-    /*private void Start()
-    {
-        // Scale last coin
-        if (isLastCoin)
-        {
-            transform.localScale = Vector3.one * 5f;
-        }
-    }*/
 
     private void Update()
     {
