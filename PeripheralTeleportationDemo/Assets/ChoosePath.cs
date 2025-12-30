@@ -27,6 +27,8 @@ public class PathManager : MonoBehaviour
     {
         if (!Application.isPlaying) return;
         if (selectedPathIndex == lastPathIndex) return;
+        if (selectedPathIndex < 0 || selectedPathIndex > 9) return;
+
 
         ApplyPathSelection();
     }
@@ -54,6 +56,7 @@ public class PathManager : MonoBehaviour
         
         Transform path = transform.GetChild(selectedPathIndex);
        
+
         Transform coin = path.GetChild(0);
 
         xrRig.transform.SetPositionAndRotation(

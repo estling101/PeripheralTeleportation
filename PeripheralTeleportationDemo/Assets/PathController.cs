@@ -1,13 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.XR.CoreUtils;
 
 public class PathController : MonoBehaviour
 {
     [Header("Path Settings")]
-    public int coinsVisibleAhead = 5;
+    public int coinsVisibleAhead = 3;
 
     private List<Coin> coins = new List<Coin>();
     private int currentIndex = 0;
+
+    public DiscomfortUI discomfortUI;
+    public XROrigin xrRig;
 
     private void Awake()
     {
@@ -26,6 +30,7 @@ public class PathController : MonoBehaviour
         // move index forward
         currentIndex = coins.IndexOf(collectedCoin) + 1;
         UpdateCoinVisibility();
+        
     }
 
     private void UpdateCoinVisibility()
